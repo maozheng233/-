@@ -1,0 +1,41 @@
+  /**
+     * 快速排序
+     * @param arr 要排序的数组
+     * @param low 排序范围最小索引
+     * @param high 排序范围最大索引
+     */
+    public static void quickSort(int[] arr,int low,int high){
+        int i,j,temp,t;
+        if(low >high){
+            return;
+        }
+        i = low;
+        j = high;
+        //temp为基准位
+        temp = arr[low];
+
+        while (i < j){
+            //先看右边,依次往左递减
+            while (i < j && arr[j] >= temp){
+                j--;
+            }
+            // 再看左边,一次往右递增
+            while (i<j && arr[i] <= temp){
+                i++;
+            }
+            // 如果满足条件,则交换
+            if(i < j){
+                t = arr[j];
+                arr[j] = arr[i];
+                arr[i] = t;
+            }
+
+        }
+        // 最后将基准temp与i和j相等的数字交换
+        arr[low] = arr[i];
+        arr[i] = temp;
+        // 递归调用左半数组
+       quickSort(arr,low,i-1);
+       // 递归调用右半数组
+        quickSort(arr,j+1,high);
+    }
