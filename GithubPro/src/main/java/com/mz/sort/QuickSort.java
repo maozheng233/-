@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author maozh
  */
-public class Sort {
+public class QuickSort {
     /**
      *快速排序
      * @param nums 待排序数组
@@ -43,6 +43,8 @@ public class Sort {
         quickSort(nums,low,i-1);
         quickSort(nums,j+1,high);
     }
+
+
 
     public static void main(String[] args) {
         int[] nums = {5, 4, 7, 3, 7, 8, 1, 5};
